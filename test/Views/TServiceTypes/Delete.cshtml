@@ -1,0 +1,25 @@
+﻿@model test.TServiceType
+
+
+<h2> Remove Service Type </h2>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+	<table class="table table-responsive">
+		<tr>
+			<td>@Html.LabelFor(model => model.strServiceType, "Service Type:")</td>
+			<td>@Html.DisplayFor(a => a.strServiceType)</td>
+		</tr>
+		
+	</table>
+</div>
+
+
+@using (Html.BeginForm("Delete", "TServiceTypes", FormMethod.Post, new { id = "deleteForm" })) 
+{
+	<p>
+		@Html.AntiForgeryToken()
+		@Html.HiddenFor(a => a.intServiceTypeID)
+		<input type="submit" value="Delete" style="background-color:red; color:white"/>
+	</p>
+}
+

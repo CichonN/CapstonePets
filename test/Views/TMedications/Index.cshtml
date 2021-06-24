@@ -1,0 +1,96 @@
+﻿@model IEnumerable<test.TMedication>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Medications</h2>
+
+<div style="display: flex;">
+    <p style="margin-left: 30px">
+        <button class="btn-primary" onclick="location.href='@Url.Action("Index","Home", new { id = Session["intUserID"].ToString() })';return false;">
+            <i class="fas fa-arrow-left"></i>  Home
+        </button>
+    </p>
+
+    <p style="margin-left: 25px">
+        <button class="btn-success" onclick="location.href='@Url.Action("Create", "TMedications")';return false;">
+            <i class="fas fa-plus"></i>  Create New
+        </button>
+    </p>
+    <p style="margin-left: 30px">
+        <button class="btn-primary" onclick="location.href='@Url.Action("Inventory", "TMedications")';return false;">
+            Inventory List
+        </button>
+    </p>
+</div>
+
+<div class="body-content">
+    <div class="form-horizontal">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayName("Medication Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Description")
+                </th>
+                <th>
+                    @Html.DisplayName("Cost")
+                </th>
+                <th>
+                    @Html.DisplayName("Price")
+                </th>
+                <th>
+                    @Html.DisplayName("Quantity")
+                </th>
+                <th>
+                    @Html.DisplayName("Method")
+                </th>
+                <th style="white-space:nowrap">
+                    @Html.DisplayName("Inventory | View | Edit | Delete")
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.strMedicationName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.strMedicationDesc)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.dblCost)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.dblPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.intQuantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TMethod.strMethod)
+                    </td>
+
+                    <td style="white-space:nowrap;">
+                        <a style="color:#5cb85c; padding-left: 70px" href='@Url.Action("AddOrder", "TMedications", new { id = item.intMedicationID })' ;return false;>  <i class="far fa-plus"></i></a>
+                        <a style="color:#5cb85c; padding-left: 15px" href='@Url.Action("Details", "TMedications", new { id = item.intMedicationID })' ;return false;>  <i class="far fa-eye"></i></a>
+                        <a style="color:#f0ad4e; padding-left: 15px" href='@Url.Action("Edit", "TMedications", new { id = item.intMedicationID })' ;return false;>  <i class="fas fa-pencil-alt"></i></a>
+                        @if (item.TVisitMedications.Count > 0)
+                        {
+                            <a style="color:dimgrey; padding-left: 15px" title="Cannot Delete. Currently in use." return false;>  <i class="fas fa-trash-alt"></i></a>
+                        }
+                        else
+                        {
+                            <a style="color:red; padding-left: 15px" href='@Url.Action("Delete", "TMedications", new { id = item.intMedicationID })' ;return false;>  <i class="fas fa-trash-alt"></i></a>
+                        }
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+

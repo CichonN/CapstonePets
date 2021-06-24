@@ -1,0 +1,23 @@
+﻿@model test.TRole
+
+<h2> Remove User Role </h2>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+	<table class="table table-responsive">
+		<tr>
+			<td>@Html.LabelFor(model => model.strRoleName, "User Role:")</td>
+			<td>@Html.DisplayFor(a => a.strRoleName)</td>
+		</tr>
+
+	</table>
+</div>
+
+
+@using (Html.BeginForm("Delete", "TRoles", FormMethod.Post, new { id = "deleteForm" })) {
+	<p>
+		@Html.AntiForgeryToken()
+		@Html.HiddenFor(a => a.intRoleID)
+		<input type="submit" value="Delete" style="background-color:red; color:white" />
+	</p>
+}
+

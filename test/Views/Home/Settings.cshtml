@@ -1,0 +1,140 @@
+﻿
+@{
+	ViewBag.Title = "Settings";
+}
+
+<h2>Settings</h2>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="display: flex;">
+	<p style="margin-left: 75px">
+		<button class="btn-primary" onclick="location.href='@Url.Action("Index","Home", new { id = Session["intUserID"].ToString() })';return false;">
+			<i class="fas fa-arrow-left"></i>  Back to Home
+		</button>
+	</p>
+
+</div>
+
+<style>
+
+	.body-content {
+		position: absolute;
+		top: 44%;
+		left: 44%;
+		margin-top: -215px;
+		margin-left: -500px;
+		width: 1200px;
+		height: 500px;
+		background-color: transparent;
+		border: outset;
+		margin-bottom: auto;
+		border-width: thick;
+	}
+
+	.inner-div {
+		position: absolute;
+		top: 5%;
+		left: 3%;
+	}
+
+	.settingsbtn {
+		background-color: DodgerBlue;
+		border: solid;
+		border-color: #2e6da4;
+		color: white;
+		padding: 12px 16px;
+		font-size: 16px;
+		cursor: pointer;
+		display: inline-grid;
+		width: 200px;
+		height: 125px;
+		/*font-size: 20px;*/
+		color: black;
+		margin: 25px;
+		border-radius: 25px;
+	}
+	
+</style>
+
+
+<div class="invisible-box" style="width:80%">
+
+	<div style="margin-left:87px; display: flex; flex-wrap: wrap;">
+
+		<button type="submit" class="hmebtn" onclick="location.href='@Url.Action("Index", "TServiceTypes")';return false;" ; style="color: #264e70;text-decoration: none;font-weight: 700;">
+			<i class="fas fa-notes-medical" , style="font-size:45px; margin: 15px; color:black"></i>
+			Service Types
+		</button>
+
+		<button type="submit" class="hmebtn" onclick="location.href='@Url.Action("Index", "TPetTypes")';return false;" ; style="color: #264e70;text-decoration: none;font-weight: 700;">
+			<i class="fas fa-paw" , style="font-size:45px; margin: 15px; color:black"></i>
+			Pet Types
+		</button>
+
+		@*<button type="submit" class="settingsbtn" name="btnPetTypes">
+			<i class="fas fa-paw" , style="font-size:45px; margin: 15px"></i>
+			@Html.ActionLink("Pet Types", "Index", "TPetTypes", null, new { style = "color: #264e70;text-decoration: none;font-weight: 700;" })
+		</button>*@
+
+		<button type="submit" class="hmebtn" onclick="location.href='@Url.Action("Index", "TBreeds")';return false;" ; style="color: #264e70;text-decoration: none;font-weight: 700;">
+			<i class="fas fa-dog" , style="font-size:45px; margin: 15px; color:black"></i>
+			Breeds
+		</button>
+
+		@*<button type="submit" class="settingsbtn" name="btnBreeds">
+			<i class="fas fa-dog" , style="font-size:45px; margin: 15px"></i>
+			@Html.ActionLink("Breeds", "Index", "TBreeds", null, new { style = "color: #264e70;text-decoration: none;font-weight: 700;" })
+		</button>*@
+
+		<button type="submit" class="hmebtn" onclick="location.href='@Url.Action("Index", "TVisitReasons")';return false;" ; style="color: #264e70;text-decoration: none;font-weight: 700;">
+			<i class="fas fa-notes-medical" , style="font-size:45px; margin: 15px; color:black"></i>
+			Visit Reasons
+		</button>
+
+		@*<button type="submit" class="settingsbtn" name="btnVisitReason">
+			<i class="fas fa-notes-medical" , style="font-size:45px; margin: 15px"></i>
+			@Html.ActionLink("Visit Reasons", "Index", "TVisitReasons", null, new { style = "color: #264e70;text-decoration: none;font-weight: 700;" })
+		</button>*@
+		<button type="submit" class="hmebtn" onclick="location.href='@Url.Action("Index", "TMethods")';return false;" ; style="color: #264e70;text-decoration: none;font-weight: 700;">
+			<i class="fas fa-prescription-bottle-alt" , style="font-size:45px; margin: 15px; color:black"></i>
+			Medication Methods
+		</button>
+
+		@*<button type="submit" class="settingsbtn" name="btnMedicationType">
+			<i class="fas fa-prescription-bottle-alt" , style="font-size:45px; margin: 15px"></i>
+			@Html.ActionLink("Medication Methods", "Index", "TMethods", null, new { style = "color: #264e70;text-decoration: none;font-weight: 700;" })
+		</button>*@
+
+		<button type="submit" class="hmebtn" onclick="location.href='@Url.Action("Index", "TUsers")';return false;" ; style="color: #264e70;text-decoration: none;font-weight: 700;">
+			<i class="fas fa-id-badge" , style="font-size:45px; margin: 15px; color:black"></i>
+			Users
+		</button>
+
+
+		@*<button type="submit" class="settingsbtn" name="btnUsers">
+			<i class="fas fa-id-badge" , style="font-size:45px; margin: 15px"></i>
+			@Html.ActionLink("Users", "Index", "TUsers", null, new { style = "color: #264e70;text-decoration: none;font-weight: 700;" })
+		</button>*@
+
+		<button type="submit" class="hmebtn" onclick="location.href='@Url.Action("Index", "TRoles")';return false;" ; style="color: #264e70;text-decoration: none;font-weight: 700;">
+			<i class="fas fa-user-tag" , style="font-size:45px; margin: 15px; color:black"></i>
+			User Roles
+		</button>
+
+		@*<button type="submit" class="settingsbtn" name="btnRole">
+			<i class="fas fa-user-tag" , style="font-size:45px; margin: 15px"></i>
+			@Html.ActionLink("User Roles", "Index", "TRoles", null, new { style = "color: #264e70;text-decoration: none;font-weight: 700;" })
+		</button>*@
+
+		<button type="submit" class="hmebtn" onclick="location.href='@Url.Action("Index", "TJobTitles")';return false;" ; style="color: #264e70;text-decoration: none;font-weight: 700;">
+			<i class="fas fa-id-badge" , style="font-size:45px; margin: 15px; color:black"></i>
+			Job Titles
+		</button>
+
+		@*<button type="submit" class="settingsbtn" name="btnJobTitles">
+			<i class="fas fa-id-badge" , style="font-size:45px; margin: 15px"></i>
+			@Html.ActionLink("Job Titles", "Index", "TJobTitles", null, new { style = "color: #264e70;text-decoration: none;font-weight: 700;" })
+		</button>*@
+
+	</div>
+</div>

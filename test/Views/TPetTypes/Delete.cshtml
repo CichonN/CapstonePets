@@ -1,0 +1,23 @@
+﻿@model test.TPetType
+
+<h2> Remove Pet Type </h2>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+	<table class="table table-responsive">
+		<tr>
+			<td>@Html.LabelFor(model => model.strPetType, "Pet Type:")</td>
+			<td>@Html.DisplayFor(a => a.strPetType)</td>
+		</tr>
+
+	</table>
+</div>
+
+
+@using (Html.BeginForm("Delete", "TPetTypes", FormMethod.Post, new { id = "deleteForm" })) {
+	<p>
+		@Html.AntiForgeryToken()
+		@Html.HiddenFor(a => a.intPetTypeID)
+		<input type="submit" value="Delete" style="background-color:red; color:white" />
+	</p>
+}
+

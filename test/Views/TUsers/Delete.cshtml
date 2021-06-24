@@ -1,0 +1,23 @@
+﻿@model test.TUser
+
+<h2> Remove User </h2>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+	<table class="table table-responsive">
+		<tr>
+			<td>@Html.LabelFor(model => model.strUserName, "User:")</td>
+			<td>@Html.DisplayFor(a => a.strUserName)</td>
+		</tr>
+
+	</table>
+</div>
+
+
+@using (Html.BeginForm("Delete", "TUsers", FormMethod.Post, new { id = "deleteForm" })) {
+<p>
+	@Html.AntiForgeryToken()
+	@Html.HiddenFor(a => a.intUserID)
+	<input type="submit" value="Delete" style="background-color:red; color:white" />
+</p>
+}
+

@@ -1,0 +1,57 @@
+﻿@model test.TVaccination
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>@ViewBag.Name</h2>
+<p style="margin-left: 25px; font-size:15px">
+    <button class="btn-primary" onclick="location.href='@Url.Action("PetVaccinations", "TVaccinations", new { id = Session["intPetID"] })';return false;"><i class="fas fa-arrow-left"></i> Back To List</button>
+</p>
+
+<div class="body-content">
+    
+    <div class="form-group">
+        <h4 style="text-decoration:none;">Are you sure you want to delete this vaccination service?</h4>
+        <hr style="margin:5px; margin-bottom: 15px" />
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayName("Service")
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TVisitService.TService.strServiceDesc)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Vaccination Date")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.dtmDateOfVaccination)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Expiration Date")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.dtmDateOfExpiration)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn-danger" />
+                <button class="btn-warning" onclick="location.href='@Url.Action("PetVaccinations", "TVaccinations", new { id = Session["intPetID"] })';return false;">
+                    <i class="fas fa-times"></i>  Cancel
+                </button>
+            </div>
+        }
+    </div>
+</div>
+
